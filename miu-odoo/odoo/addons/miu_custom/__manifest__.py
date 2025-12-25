@@ -1,0 +1,20 @@
+{
+    'name': 'MIU Custom Module',
+    'version': '17.0.1.0',
+    'category': 'Project Management',
+    'description': 'Custom module for MIU Software R&D Lab - Project, Task, and Evaluation Management',
+    'author': 'MIU Software R&D Lab',
+    'depends': ['base', 'project', 'hr', 'documents', 'mail'],
+    'data': [
+        'security/ir.model.access.csv',
+        'data/task_stages.xml',
+        'data/user_groups.xml',
+        'views/miu_employee_views.xml',
+        'views/miu_project_views.xml',
+        'views/miu_task_views.xml',
+        'views/miu_evaluation_views.xml',
+        'models/server_actions.xml',
+    ],
+    'installable': True,
+    'application': True,
+}

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Task Stages -->
+        <record id="task_stage_todo" model="project.task.type">
+            <field name="name">Todo</field>
+            <field name="sequence">1</field>
+        </record>
+        
+        <record id="task_stage_in_progress" model="project.task.type">
+            <field name="name">In Progress</field>
+            <field name="sequence">2</field>
+        </record>
+        
+        <record id="task_stage_in_review" model="project.task.type">
+            <field name="name">In Review</field>
+            <field name="sequence">3</field>
+        </record>
+        
+        <record id="task_stage_approved" model="project.task.type">
+            <field name="name">Approved</field>
+            <field name="sequence">4</field>
+        </record>
+        
+        <record id="task_stage_rejected" model="project.task.type">
+            <field name="name">Rejected</field>
+            <field name="sequence">5</field>
+        </record>
+    </data>
+</odoo>

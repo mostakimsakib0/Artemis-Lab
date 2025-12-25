@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Task View -->
+        <record id="view_miu_task_form" model="ir.ui.view">
+            <field name="name">miu.task.form</field>
+            <field name="model">project.task</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <field name="name" required="1"/>
+                            <field name="description"/>
+                            <field name="user_ids" widget="many2many_tags"/>
+                            <field name="date_deadline"/>
+                            <field name="milestone_id"/>
+                        </group>
+                        <group>
+                            <field name="reviewer_id"/>
+                            <field name="github_pr_link"/>
+                            <field name="custom_stage"/>
+                            <field name="deadline_exceeded"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+    </data>
+</odoo>

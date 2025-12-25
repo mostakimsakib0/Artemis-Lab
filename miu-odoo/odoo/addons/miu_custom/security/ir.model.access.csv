@@ -1,0 +1,8 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_miu_evaluation_student,access_miu_evaluation_student,miu_custom.model_miu_evaluation,base.group_user,1,0,0,0
+access_miu_evaluation_faculty,access_miu_evaluation_faculty,miu_custom.model_miu_evaluation,base.group_system,1,1,1,1
+access_miu_skill_all,access_miu_skill_all,miu_custom.model_miu_skill,base.group_user,1,0,0,0
+access_miu_document_folder_user,access_miu_document_folder_user,miu_custom.model_miu_document_folder,base.group_user,1,1,0,0
+access_miu_employee_user,access_miu_employee_user,miu_custom.model_miu_employee,base.group_user,1,1,0,0
+access_miu_project_user,access_miu_project_user,miu_custom.model_miu_project,base.group_user,1,1,1,0
+access_miu_task_user,access_miu_task_user,miu_custom.model_miu_task,base.group_user,1,1,1,0

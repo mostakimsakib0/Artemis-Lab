@@ -1,0 +1,40 @@
+version: '3.8'
+
+services:
+  db:
+    image: postgres:14
+    container_name: miu_postgres
+    environment:
+      POSTGRES_DB: postgres
+      POSTGRES_USER: odoo
+      POSTGRES_PASSWORD: odoo
+    volumes:
+      - ./postgres/data:/var/lib/postgresql/data
+    restart: always
+    networks:
+      - miu_network
+
+  odoo:
+    image: odoo:17.0
+    container_name: miu_odoo
+    depends_on:
+      - db
+    ports:
+      - "8069:8069"
+    volumes:
+      - ./odoo/config:/etc/odoo
+      - ./odoo/addons:/mnt/extra-addons
+      - ./odoo/data:/var/lib/odoo
+    environment:
+      - HOST=db
+      - USER=odoo
+      - PASSWORD=odoo
+      - DB_PORT_5432_TCP_ADDR=db
+      - DB_PORT_5432_TCP_PORT=5432
+    restart: always
+    networks:
+      - miu_network
+
+networks:
+  miu_network:
+    driver: bridge
