@@ -4,3 +4,4 @@ from . import project
 from . import task
 from . import evaluation
 from . import document_folder
+from . import dashboard

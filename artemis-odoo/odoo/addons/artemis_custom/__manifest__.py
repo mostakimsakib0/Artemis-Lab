@@ -13,6 +13,7 @@
         'views/artemis_project_views.xml',
         'views/artemis_task_views.xml',
         'views/artemis_evaluation_views.xml',
+        'views/artemis_dashboard_views.xml',
         'data/server_actions.xml',
     ],
     'installable': True,

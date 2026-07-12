@@ -5,3 +5,5 @@ access_artemis_skill_user,Artemis Skill User,model_artemis_skill,base.group_user
 access_artemis_skill_admin,Artemis Skill Admin,model_artemis_skill,base.group_system,1,1,1,1
 access_artemis_document_folder_user,Artemis Document Folder User,model_artemis_document_folder,base.group_user,1,1,0,0
 access_artemis_document_folder_admin,Artemis Document Folder Admin,model_artemis_document_folder,base.group_system,1,1,1,1
+access_artemis_dashboard_user,Artemis Dashboard User,model_artemis_dashboard,base.group_user,1,0,0,0
+access_artemis_dashboard_admin,Artemis Dashboard Admin,model_artemis_dashboard,base.group_system,1,1,1,1

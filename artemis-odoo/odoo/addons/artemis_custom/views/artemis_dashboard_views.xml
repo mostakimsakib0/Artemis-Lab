@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_artemis_dashboard_form" model="ir.ui.view">
+            <field name="name">artemis.dashboard.form</field>
+            <field name="model">artemis.dashboard</field>
+            <field name="arch" type="xml">
+                <form>
+                    <header>
+                        <button name="action_refresh" type="object" string="Refresh" class="btn-primary"/>
+                    </header>
+                    <sheet>
+                        <div class="oe_title">
+                            <h1>CEO Dashboard</h1>
+                        </div>
+
+                        <group string="Projects">
+                            <field name="total_projects" widget="stat" class="text-bg-primary"/>
+                            <field name="active_projects" widget="stat" class="text-bg-success"/>
+                        </group>
+
+                        <group string="Tasks">
+                            <group>
+                                <field name="total_tasks" widget="stat"/>
+                                <field name="tasks_todo" widget="stat"/>
+                                <field name="tasks_in_progress" widget="stat"/>
+                                <field name="tasks_in_review" widget="stat"/>
+                            </group>
+                            <group>
+                                <field name="tasks_approved" widget="stat"/>
+                                <field name="tasks_rejected" widget="stat"/>
+                                <field name="overdue_tasks" widget="stat" class="text-bg-danger"/>
+                                <field name="on_time_rate" widget="progressbar"/>
+                            </group>
+                        </group>
+
+                        <group string="Average Ratings (Last Sprint)">
+                            <group>
+                                <field name="avg_task_rating"/>
+                                <field name="avg_code_rating"/>
+                            </group>
+                            <group>
+                                <field name="avg_comm_rating"/>
+                                <field name="avg_consistency_rating"/>
+                            </group>
+                            <group>
+                                <field name="avg_overall"/>
+                            </group>
+                        </group>
+
+                        <group string="Team">
+                            <field name="total_employees" widget="stat"/>
+                            <field name="total_evaluations" widget="stat"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_artemis_dashboard" model="ir.actions.act_window">
+            <field name="name">CEO Dashboard</field>
+            <field name="res_model">artemis.dashboard</field>
+            <field name="view_mode">form</field>
+        </record>
+
+        <menuitem id="menu_artemis_dashboard" name="CEO Dashboard" action="action_artemis_dashboard" sequence="0" parent="project.menu_project_management"/>
+    </data>
+</odoo>
