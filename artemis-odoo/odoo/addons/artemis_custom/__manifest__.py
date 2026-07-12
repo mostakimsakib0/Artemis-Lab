@@ -16,6 +16,7 @@
         'views/artemis_dashboard_views.xml',
         'views/artemis_hr_views.xml',
         'views/artemis_helpdesk_views.xml',
+        'views/artemis_accounting_views.xml',
         'data/server_actions.xml',
     ],
     'installable': True,

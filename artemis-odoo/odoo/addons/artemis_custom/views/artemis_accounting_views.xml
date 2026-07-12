@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Budget -->
+        <record id="view_artemis_budget_form" model="ir.ui.view">
+            <field name="name">artemis.project.budget.form</field>
+            <field name="model">artemis.project.budget</field>
+            <field name="arch" type="xml">
+                <form>
+                    <header>
+                        <button name="action_activate" type="object" string="Activate" class="btn-primary" states="draft"/>
+                        <button name="action_close" type="object" string="Close" class="btn-secondary" states="active"/>
+                        <field name="state" widget="statusbar"/>
+                    </header>
+                    <sheet>
+                        <group string="Project">
+                            <field name="project_id"/>
+                        </group>
+                        <group string="Estimated">
+                            <field name="estimated_revenue" widget="monetary"/>
+                            <field name="estimated_cost" widget="monetary"/>
+                            <field name="estimated_profit" widget="monetary"/>
+                            <field name="estimated_margin"/>
+                        </group>
+                        <group string="Actual">
+                            <field name="actual_revenue" widget="monetary"/>
+                            <field name="actual_cost" widget="monetary"/>
+                            <field name="actual_profit" widget="monetary"/>
+                            <field name="actual_margin"/>
+                        </group>
+                        <notebook>
+                            <page string="Expenses">
+                                <field name="expense_ids" context="{'default_budget_id': active_id}">
+                                    <tree editable="bottom">
+                                        <field name="employee_id"/>
+                                        <field name="category"/>
+                                        <field name="amount" widget="monetary"/>
+                                        <field name="date"/>
+                                        <field name="description"/>
+                                        <field name="state"/>
+                                    </tree>
+                                </field>
+                            </page>
+                            <page string="Invoices">
+                                <field name="invoice_ids" context="{'default_budget_id': active_id}">
+                                    <tree editable="bottom">
+                                        <field name="number"/>
+                                        <field name="client_name"/>
+                                        <field name="amount" widget="monetary"/>
+                                        <field name="date"/>
+                                        <field name="due_date"/>
+                                        <field name="state"/>
+                                    </tree>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_artemis_budget_tree" model="ir.ui.view">
+            <field name="name">artemis.project.budget.tree</field>
+            <field name="model">artemis.project.budget</field>
+            <field name="arch" type="xml">
+                <tree decoration-success="actual_profit > 0" decoration-danger="actual_profit &lt; 0">
+                    <field name="project_id"/>
+                    <field name="estimated_revenue" widget="monetary"/>
+                    <field name="estimated_cost" widget="monetary"/>
+                    <field name="actual_revenue" widget="monetary"/>
+                    <field name="actual_cost" widget="monetary"/>
+                    <field name="actual_profit" widget="monetary"/>
+                    <field name="state"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="action_artemis_budget" model="ir.actions.act_window">
+            <field name="name">Project Budgets</field>
+            <field name="res_model">artemis.project.budget</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <!-- Expense -->
+        <record id="view_artemis_expense_form" model="ir.ui.view">
+            <field name="name">artemis.expense.form</field>
+            <field name="model">artemis.expense</field>
+            <field name="arch" type="xml">
+                <form>
+                    <header>
+                        <button name="action_approve" type="object" string="Approve" class="btn-success" states="draft"/>
+                        <button name="action_reject" type="object" string="Reject" class="btn-danger" states="draft"/>
+                        <field name="state" widget="statusbar"/>
+                    </header>
+                    <sheet>
+                        <group>
+                            <field name="employee_id"/>
+                            <field name="category"/>
+                            <field name="amount" widget="monetary"/>
+                            <field name="date"/>
+                            <field name="budget_id"/>
+                            <field name="description"/>
+                            <field name="receipt" filename="filename"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_artemis_expense_tree" model="ir.ui.view">
+            <field name="name">artemis.expense.tree</field>
+            <field name="model">artemis.expense</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="employee_id"/>
+                    <field name="category"/>
+                    <field name="amount" widget="monetary"/>
+                    <field name="date"/>
+                    <field name="project_id"/>
+                    <field name="state"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="action_artemis_expense" model="ir.actions.act_window">
+            <field name="name">Expenses</field>
+            <field name="res_model">artemis.expense</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <!-- Invoice -->
+        <record id="view_artemis_invoice_form" model="ir.ui.view">
+            <field name="name">artemis.invoice.form</field>
+            <field name="model">artemis.invoice</field>
+            <field name="arch" type="xml">
+                <form>
+                    <header>
+                        <button name="action_send" type="object" string="Mark Sent" class="btn-primary" states="draft"/>
+                        <button name="action_mark_paid" type="object" string="Mark Paid" class="btn-success" states="sent"/>
+                        <field name="state" widget="statusbar"/>
+                    </header>
+                    <sheet>
+                        <group>
+                            <field name="number"/>
+                            <field name="client_name"/>
+                            <field name="amount" widget="monetary"/>
+                            <field name="date"/>
+                            <field name="due_date"/>
+                            <field name="budget_id"/>
+                            <field name="description"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_artemis_invoice_tree" model="ir.ui.view">
+            <field name="name">artemis.invoice.tree</field>
+            <field name="model">artemis.invoice</field>
+            <field name="arch" type="xml">
+                <tree decoration-danger="state == 'overdue'" decoration-success="state == 'paid'">
+                    <field name="number"/>
+                    <field name="client_name"/>
+                    <field name="amount" widget="monetary"/>
+                    <field name="date"/>
+                    <field name="due_date"/>
+                    <field name="state"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="action_artemis_invoice" model="ir.actions.act_window">
+            <field name="name">Invoices</field>
+            <field name="res_model">artemis.invoice</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <!-- Menus -->
+        <menuitem id="menu_artemis_accounting" name="Accounting" sequence="6" parent="project.menu_project_management"/>
+        <menuitem id="menu_artemis_budgets" name="Project Budgets" parent="menu_artemis_accounting" action="action_artemis_budget" sequence="10"/>
+        <menuitem id="menu_artemis_expenses" name="Expenses" parent="menu_artemis_accounting" action="action_artemis_expense" sequence="20"/>
+        <menuitem id="menu_artemis_invoices" name="Invoices" parent="menu_artemis_accounting" action="action_artemis_invoice" sequence="30"/>
+    </data>
+</odoo>
