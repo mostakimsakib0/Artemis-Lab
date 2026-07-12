@@ -21,3 +21,4 @@ access_artemis_expense_user,Artemis Expense User,model_artemis_expense,base.grou
 access_artemis_expense_admin,Artemis Expense Admin,model_artemis_expense,base.group_system,1,1,1,1
 access_artemis_invoice_user,Artemis Invoice User,model_artemis_invoice,base.group_user,1,0,0,0
 access_artemis_invoice_admin,Artemis Invoice Admin,model_artemis_invoice,base.group_system,1,1,1,1
+access_artemis_employee_dashboard_user,Artemis Employee Dashboard User,model_artemis_employee_dashboard,base.group_user,1,0,0,0

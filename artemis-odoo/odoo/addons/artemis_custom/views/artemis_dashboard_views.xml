@@ -64,5 +64,71 @@
         </record>
 
         <menuitem id="menu_artemis_dashboard" name="CEO Dashboard" action="action_artemis_dashboard" sequence="0" parent="project.menu_project_management"/>
+
+        <!-- Employee Dashboard -->
+        <record id="view_artemis_employee_dashboard_form" model="ir.ui.view">
+            <field name="name">artemis.employee.dashboard.form</field>
+            <field name="model">artemis.employee.dashboard</field>
+            <field name="arch" type="xml">
+                <form>
+                    <header>
+                        <button name="action_refresh" type="object" string="Refresh" class="btn-primary"/>
+                    </header>
+                    <sheet>
+                        <div class="oe_title">
+                            <h1>My Dashboard</h1>
+                            <h2><field name="employee_id" readonly="1"/></h2>
+                        </div>
+
+                        <group string="My Tasks">
+                            <group>
+                                <field name="my_total_tasks" widget="stat"/>
+                                <field name="my_todo" widget="stat"/>
+                                <field name="my_in_progress" widget="stat"/>
+                                <field name="my_in_review" widget="stat"/>
+                            </group>
+                            <group>
+                                <field name="my_approved" widget="stat" class="text-bg-success"/>
+                                <field name="my_rejected" widget="stat" class="text-bg-danger"/>
+                                <field name="my_overdue" widget="stat" class="text-bg-danger"/>
+                            </group>
+                        </group>
+
+                        <group string="My Evaluations">
+                            <field name="my_total_evaluations" widget="stat"/>
+                            <field name="my_avg_overall"/>
+                        </group>
+
+                        <group string="My Leaves">
+                            <group>
+                                <field name="my_pending_leaves" widget="stat"/>
+                                <field name="my_approved_leaves" widget="stat"/>
+                            </group>
+                            <group>
+                                <field name="my_total_leave_days" widget="stat"/>
+                            </group>
+                        </group>
+
+                        <group string="My Expenses">
+                            <field name="my_total_expenses" widget="monetary"/>
+                            <field name="my_pending_expenses" widget="monetary"/>
+                        </group>
+
+                        <group string="My Tickets">
+                            <field name="my_open_tickets" widget="stat"/>
+                            <field name="my_resolved_tickets" widget="stat"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_artemis_employee_dashboard" model="ir.actions.act_window">
+            <field name="name">My Dashboard</field>
+            <field name="res_model">artemis.employee.dashboard</field>
+            <field name="view_mode">form</field>
+        </record>
+
+        <menuitem id="menu_artemis_employee_dashboard" name="My Dashboard" action="action_artemis_employee_dashboard" sequence="1" parent="project.menu_project_management"/>
     </data>
 </odoo>
