@@ -1,0 +1,14 @@
+# Environment secrets
+.env
+
+# Runtime data
+postgres/data/
+odoo/data/
+odoo/addons/*/__pycache__/
+
+# Backups
+backups/
+
+# OS
+.DS_Store
+Thumbs.db

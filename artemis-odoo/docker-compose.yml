@@ -5,32 +5,39 @@ services:
     image: postgres:14
     container_name: artemis_postgres
     environment:
-      POSTGRES_DB: postgres
-      POSTGRES_USER: odoo
-      POSTGRES_PASSWORD: odoo
+      POSTGRES_DB: ${POSTGRES_DB}
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
     volumes:
       - ./postgres/data:/var/lib/postgresql/data
     restart: always
     networks:
       - artemis_network
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER} -d ${POSTGRES_DB}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
 
   odoo:
     image: odoo:17.0
     container_name: artemis_odoo
     depends_on:
-      - db
+      db:
+        condition: service_healthy
     ports:
-      - "8069:8069"
+      - "${ODOO_PORT}:8069"
     volumes:
       - ./odoo/config:/etc/odoo
       - ./odoo/addons:/mnt/extra-addons
       - ./odoo/data:/var/lib/odoo
     environment:
-      - HOST=db
-      - USER=odoo
-      - PASSWORD=odoo
-      - DB_PORT_5432_TCP_ADDR=db
-      - DB_PORT_5432_TCP_PORT=5432
+      - PGHOST=${ODOO_DB_HOST}
+      - PGPORT=${ODOO_DB_PORT}
+      - PGUSER=${ODOO_DB_USER}
+      - PGPASSWORD=${ODOO_DB_PASSWORD}
+      - PGDATABASE=${ODOO_DB_NAME}
+      - ODOO_ADMIN_PASSWD=${ODOO_ADMIN_PASSWD}
     restart: always
     networks:
       - artemis_network

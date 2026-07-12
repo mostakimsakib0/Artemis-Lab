@@ -20,13 +20,16 @@ Artemis Lab is a real software company built on Odoo 17 + Docker. Employees work
 # 1. Navigate to project
 cd artemis-odoo
 
-# 2. Start services
+# 2. Configure environment (edit .env with your own passwords)
+cp .env.example .env
+
+# 3. Start services
 docker-compose up -d
 
-# 3. Wait 60 seconds, then open browser
+# 4. Wait 60 seconds, then open browser
 # http://localhost:8069
 
-# 4. Create database
+# 5. Create database
 # Database: artemis_lab
 # Email: admin@artemis-lab.local
 # Company: Artemis Lab
