@@ -8,3 +8,4 @@ from . import dashboard
 from . import hr
 from . import helpdesk
 from . import accounting
+from . import crm

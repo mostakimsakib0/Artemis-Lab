@@ -22,3 +22,10 @@ access_artemis_expense_admin,Artemis Expense Admin,model_artemis_expense,base.gr
 access_artemis_invoice_user,Artemis Invoice User,model_artemis_invoice,base.group_user,1,0,0,0
 access_artemis_invoice_admin,Artemis Invoice Admin,model_artemis_invoice,base.group_system,1,1,1,1
 access_artemis_employee_dashboard_user,Artemis Employee Dashboard User,model_artemis_employee_dashboard,base.group_user,1,0,0,0
+access_artemis_lead_user,Artemis Lead User,model_artemis_crm_lead,base.group_user,1,1,1,0
+access_artemis_lead_admin,Artemis Lead Admin,model_artemis_crm_lead,base.group_system,1,1,1,1
+access_artemis_service_user,Artemis Service User,model_artemis_service,base.group_user,1,0,0,0
+access_artemis_service_admin,Artemis Service Admin,model_artemis_service,base.group_system,1,1,1,1
+access_artemis_communication_user,Artemis Comm Log User,model_artemis_crm_communication,base.group_user,1,1,1,0
+access_artemis_communication_admin,Artemis Comm Log Admin,model_artemis_crm_communication,base.group_system,1,1,1,1
+access_artemis_lost_reason_wizard,Artemis Lost Reason Wizard,model_artemis_crm_lost_reason_wizard,base.group_user,1,1,1,0
