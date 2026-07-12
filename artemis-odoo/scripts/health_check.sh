@@ -37,7 +37,7 @@ fi
 
 # Check 2: PostgreSQL connectivity
 echo -n "[CHECK 2] PostgreSQL connectivity... "
-if docker exec "$POSTGRES_CONTAINER" psql -U odoo postgres -c "SELECT 1" > /dev/null 2>&1; then
+if docker exec "$POSTGRES_CONTAINER" psql -U artemis -d artemis_lab -c "SELECT 1" > /dev/null 2>&1; then
     echo -e "${GREEN}✓ OK${NC}"
 else
     echo -e "${RED}✗ FAILED${NC}"
@@ -55,7 +55,7 @@ fi
 
 # Check 4: Database size
 echo -n "[CHECK 4] Database size... "
-DB_SIZE=$(docker exec "$POSTGRES_CONTAINER" psql -U odoo postgres -t -c "SELECT pg_size_pretty(pg_database_size('postgres'))")
+DB_SIZE=$(docker exec "$POSTGRES_CONTAINER" psql -U artemis -d artemis_lab -t -c "SELECT pg_size_pretty(pg_database_size('artemis_lab'))")
 echo -e "${GREEN}$DB_SIZE${NC}"
 
 # Check 5: Disk space

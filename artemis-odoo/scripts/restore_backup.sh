@@ -9,8 +9,8 @@ set -e
 
 BACKUP_FILE="$1"
 POSTGRES_CONTAINER="artemis_postgres"
-DB_USER="odoo"
-DB_NAME="postgres"
+DB_USER="artemis"
+DB_NAME="artemis_lab"
 
 # Validation
 if [ -z "$BACKUP_FILE" ]; then

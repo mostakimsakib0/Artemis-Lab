@@ -9,8 +9,8 @@ set -e
 # Configuration
 BACKUP_DIR="/path/to/artemis-odoo/backups"
 POSTGRES_CONTAINER="artemis_postgres"
-DB_USER="odoo"
-DB_NAME="postgres"
+DB_USER="artemis"
+DB_NAME="artemis_lab"
 RETENTION_DAYS=30
 
 # Create backup directory if not exists

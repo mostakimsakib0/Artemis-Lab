@@ -32,11 +32,11 @@ services:
       - ./odoo/addons:/mnt/extra-addons
       - ./odoo/data:/var/lib/odoo
     environment:
-      - PGHOST=${ODOO_DB_HOST}
-      - PGPORT=${ODOO_DB_PORT}
-      - PGUSER=${ODOO_DB_USER}
-      - PGPASSWORD=${ODOO_DB_PASSWORD}
-      - PGDATABASE=${ODOO_DB_NAME}
+      - DB_HOST=${ODOO_DB_HOST}
+      - DB_PORT=${ODOO_DB_PORT}
+      - DB_USER=${ODOO_DB_USER}
+      - DB_PASSWORD=${ODOO_DB_PASSWORD}
+      - DB_NAME=${ODOO_DB_NAME}
       - ODOO_ADMIN_PASSWD=${ODOO_ADMIN_PASSWD}
     restart: always
     networks:
