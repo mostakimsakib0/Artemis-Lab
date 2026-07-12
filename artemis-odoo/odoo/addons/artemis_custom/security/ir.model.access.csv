@@ -13,3 +13,5 @@ access_artemis_leave_user,Artemis Leave User,model_artemis_leave,base.group_user
 access_artemis_leave_admin,Artemis Leave Admin,model_artemis_leave,base.group_system,1,1,1,1
 access_artemis_payslip_user,Artemis Payslip User,model_artemis_payslip,base.group_user,1,0,0,0
 access_artemis_payslip_admin,Artemis Payslip Admin,model_artemis_payslip,base.group_system,1,1,1,1
+access_artemis_ticket_user,Artemis Ticket User,model_artemis_ticket,base.group_user,1,1,1,0
+access_artemis_ticket_admin,Artemis Ticket Admin,model_artemis_ticket,base.group_system,1,1,1,1

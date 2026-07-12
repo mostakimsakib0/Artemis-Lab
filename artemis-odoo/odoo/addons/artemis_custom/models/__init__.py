@@ -6,3 +6,4 @@ from . import evaluation
 from . import document_folder
 from . import dashboard
 from . import hr
+from . import helpdesk
