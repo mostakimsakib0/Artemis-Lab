@@ -1,0 +1,20 @@
+{
+    'name': 'Artemis Custom Module',
+    'version': '17.0.1.0',
+    'category': 'Project Management',
+    'description': 'Artemis Lab — Building Intelligent Software, AI & Design Solutions. Custom module for Project, Task, and Evaluation Management.',
+    'author': 'Artemis Lab',
+    'depends': ['base', 'project', 'hr', 'documents', 'mail'],
+    'data': [
+        'security/ir.model.access.csv',
+        'data/task_stages.xml',
+        'data/user_groups.xml',
+        'views/artemis_employee_views.xml',
+        'views/artemis_project_views.xml',
+        'views/artemis_task_views.xml',
+        'views/artemis_evaluation_views.xml',
+        'data/server_actions.xml',
+    ],
+    'installable': True,
+    'application': True,
+}

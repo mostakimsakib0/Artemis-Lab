@@ -1,4 +1,7 @@
-# MIU Software R&D Lab - Complete Documentation Index
+# Artemis Lab - Complete Documentation Index
+
+> **Building Intelligent Software, AI & Design Solutions.**  
+> Software Development · AI Solutions · R&D · Interior Design & 3D Visualization · Automation · Cloud & DevOps
 
 **Status**: ✅ READY FOR DEPLOYMENT  
 **Created**: December 25, 2024  
@@ -16,12 +19,12 @@
 - Default credentials
 
 ### Detailed Setup
-📄 [SETUP_GUIDE.md](miu-odoo/SETUP_GUIDE.md) - **Complete 15-step setup**
+📄 [SETUP_GUIDE.md](artemis-odoo/SETUP_GUIDE.md) - **Complete 15-step setup**
 - Server requirements (Ubuntu 22.04, 4GB RAM, 2 CPU)
 - Docker installation
 - Database creation
 - Module installation (5 mandatory + custom)
-- User role design (7 groups)
+- User role design (9 groups)
 - Project & sprint setup
 - Task structure & workflow
 - Automation rules explained
@@ -31,7 +34,7 @@
 - Common operations
 
 ### Deployment Plan
-📄 [DEPLOYMENT_CHECKLIST.md](miu-odoo/DEPLOYMENT_CHECKLIST.md) - **7-day deployment timeline**
+📄 [DEPLOYMENT_CHECKLIST.md](artemis-odoo/DEPLOYMENT_CHECKLIST.md) - **7-day deployment timeline**
 - Pre-deployment checklist
 - Daily breakdown (Day 1-7):
   - Day 1: Docker Setup
@@ -73,12 +76,12 @@
 ## 🗂️ Project Structure
 
 ```
-MIU-Software-R-D-Lab/
+Artemis-Lab/
 ├── README.md                                    (Main overview)
 ├── IMPLEMENTATION_SUMMARY.md                    (What was built)
 ├── SYSTEM_ARCHITECTURE.md                       (System design)
 │
-└── miu-odoo/
+└── artemis-odoo/
     ├── README.md                                (Quick reference)
     ├── SETUP_GUIDE.md                           (Complete setup)
     ├── DEPLOYMENT_CHECKLIST.md                  (7-day plan)
@@ -89,17 +92,17 @@ MIU-Software-R-D-Lab/
     │   ├── config/
     │   │   └── odoo.conf                        (Odoo configuration)
     │   ├── addons/
-    │   │   └── miu_custom/                      (Custom module)
+    │   │   └── artemis_custom/                      (Custom module)
     │   │       ├── __init__.py
     │   │       ├── __manifest__.py
     │   │       ├── models/
     │   │       │   ├── __init__.py              (6 models, 280+ lines)
     │   │       │   └── server_actions.xml
     │   │       ├── views/
-    │   │       │   ├── miu_employee_views.xml
-    │   │       │   ├── miu_project_views.xml
-    │   │       │   ├── miu_task_views.xml
-    │   │       │   └── miu_evaluation_views.xml
+    │   │       │   ├── artemis_employee_views.xml
+    │   │       │   ├── artemis_project_views.xml
+    │   │       │   ├── artemis_task_views.xml
+    │   │       │   └── artemis_evaluation_views.xml
     │   │       ├── data/
     │   │       │   ├── task_stages.xml
     │   │       │   └── user_groups.xml
@@ -115,7 +118,7 @@ MIU-Software-R-D-Lab/
     └── scripts/                                 (Utility scripts)
         ├── daily_backup.sh                      (Automated daily backup)
         ├── restore_backup.sh                    (Restore from backup)
-        ├── semester_reset.sh                    (Reset data for new batch)
+        ├── quarter_reset.sh                    (Reset data for new batch)
         └── health_check.sh                      (System monitoring)
 ```
 
@@ -125,37 +128,37 @@ MIU-Software-R-D-Lab/
 
 ### For First-Time Setup
 1. **Start**: [README.md](README.md) (2 min read)
-2. **Then**: [SETUP_GUIDE.md](miu-odoo/SETUP_GUIDE.md) (detailed walkthrough)
-3. **Follow**: [DEPLOYMENT_CHECKLIST.md](miu-odoo/DEPLOYMENT_CHECKLIST.md) (7-day plan)
+2. **Then**: [SETUP_GUIDE.md](artemis-odoo/SETUP_GUIDE.md) (detailed walkthrough)
+3. **Follow**: [DEPLOYMENT_CHECKLIST.md](artemis-odoo/DEPLOYMENT_CHECKLIST.md) (7-day plan)
 4. **Reference**: [SYSTEM_ARCHITECTURE.md](SYSTEM_ARCHITECTURE.md) (understand design)
 
 ### For Understanding the System
 1. **Architecture**: [SYSTEM_ARCHITECTURE.md](SYSTEM_ARCHITECTURE.md)
 2. **Implementation**: [IMPLEMENTATION_SUMMARY.md](IMPLEMENTATION_SUMMARY.md)
-3. **Details**: [SETUP_GUIDE.md](miu-odoo/SETUP_GUIDE.md)
+3. **Details**: [SETUP_GUIDE.md](artemis-odoo/SETUP_GUIDE.md)
 
 ### For Troubleshooting
 1. **Quick answers**: See sections in [README.md](README.md)
-2. **Detailed help**: [DEPLOYMENT_CHECKLIST.md](miu-odoo/DEPLOYMENT_CHECKLIST.md) → Troubleshooting
+2. **Detailed help**: [DEPLOYMENT_CHECKLIST.md](artemis-odoo/DEPLOYMENT_CHECKLIST.md) → Troubleshooting
 3. **Architecture issues**: [SYSTEM_ARCHITECTURE.md](SYSTEM_ARCHITECTURE.md)
 
 ### For Operations (Post-Launch)
 - **Daily backup**: `./scripts/daily_backup.sh` (automatic)
 - **Health check**: `./scripts/health_check.sh` (weekly)
 - **Restore data**: `./scripts/restore_backup.sh`
-- **Semester reset**: `./scripts/semester_reset.sh`
+- **Quarter reset**: `./scripts/quarter_reset.sh`
 
 ---
 
 ## 📊 Key Features Implemented
 
-### ✅ User Roles (7 groups)
-- Student (own task update)
+### ✅ User Roles (9 groups)
+- Intern (own task update)
 - Developer (code-related tasks)
 - Tech Lead (review + approve)
 - Project Manager (assign + plan)
 - QA Tester (testing tasks)
-- Faculty Mentor (evaluate)
+- CEO (evaluate)
 - System Admin (full access)
 
 ### ✅ Project Management
@@ -176,7 +179,7 @@ MIU-Software-R-D-Lab/
 - Sprint-based appraisals
 - 4-point criteria (1-5 scale each)
 - Auto-calculated overall rating
-- Faculty evaluation interface
+- CEO evaluation interface
 - Comments & report generation
 
 ### ✅ Documentation Management
@@ -189,7 +192,7 @@ MIU-Software-R-D-Lab/
 - Compression with gzip
 - 30-day retention
 - One-click restore
-- Semester reset capability
+- Quarter reset capability
 
 ---
 
@@ -208,10 +211,10 @@ docker-compose logs -f odoo       # View Odoo logs
 # Backup operations
 ./scripts/daily_backup.sh         # Create backup
 ./scripts/restore_backup.sh <file> # Restore backup
-./scripts/semester_reset.sh       # Reset for new batch
+./scripts/quarter_reset.sh       # Reset for new batch
 
 # Database operations
-docker exec miu_postgres psql -U odoo -c "SELECT 1"  # Test connection
+docker exec artemis_postgres psql -U odoo -c "SELECT 1"  # Test connection
 ```
 
 ---
@@ -234,12 +237,12 @@ docker exec miu_postgres psql -U odoo -c "SELECT 1"  # Test connection
 System is ready for launch when:
 - ✅ All Docker containers running
 - ✅ 5 mandatory modules installed
-- ✅ miu_custom module functional
-- ✅ 7 user groups created
-- ✅ 15+ students added
+- ✅ artemis_custom module functional
+- ✅ 9 user groups created
+- ✅ 15+ interns added
 - ✅ Automation rules verified
 - ✅ Backup system tested
-- ✅ Faculty trained
+- ✅ CEO trained
 - ✅ No critical errors in logs
 - ✅ All users can login
 
@@ -271,8 +274,8 @@ System is ready for launch when:
 ## 💡 Key Points
 
 1. **Real Company Simulation**: This is NOT a tutorial - it's a production operating system
-2. **MoU Safe**: Professional setup ready for university partnerships
-3. **Student Portfolios**: Graduates have real company experience
+2. **MoU Safe**: Professional setup ready for professional partnerships
+3. **Intern Portfolios**: Graduates have real company experience
 4. **Production Ready**: Backup, automation, monitoring all included
 5. **Docker Based**: Easy to deploy, scale, and maintain
 6. **No Renaming Needed**: Setup is clean for any organization
@@ -282,14 +285,14 @@ System is ready for launch when:
 ## 📞 Support
 
 ### During Setup
-- Check [SETUP_GUIDE.md](miu-odoo/SETUP_GUIDE.md) section 15 (Troubleshooting)
-- Review [DEPLOYMENT_CHECKLIST.md](miu-odoo/DEPLOYMENT_CHECKLIST.md) for your current day
+- Check [SETUP_GUIDE.md](artemis-odoo/SETUP_GUIDE.md) section 15 (Troubleshooting)
+- Review [DEPLOYMENT_CHECKLIST.md](artemis-odoo/DEPLOYMENT_CHECKLIST.md) for your current day
 
 ### After Launch
 - System Admin runs daily backup script
 - Weekly health checks with health_check.sh
 - Monthly database maintenance
-- Semester-end reset before new batch
+- Quarter-end reset before new batch
 
 ### Documentation
 - All documentation is in this repository
@@ -301,16 +304,16 @@ System is ready for launch when:
 ## ✅ Final Checklist Before Launching
 
 - [ ] Read [README.md](README.md)
-- [ ] Review [SETUP_GUIDE.md](miu-odoo/SETUP_GUIDE.md)
-- [ ] Understand [DEPLOYMENT_CHECKLIST.md](miu-odoo/DEPLOYMENT_CHECKLIST.md)
+- [ ] Review [SETUP_GUIDE.md](artemis-odoo/SETUP_GUIDE.md)
+- [ ] Understand [DEPLOYMENT_CHECKLIST.md](artemis-odoo/DEPLOYMENT_CHECKLIST.md)
 - [ ] Study [SYSTEM_ARCHITECTURE.md](SYSTEM_ARCHITECTURE.md)
 - [ ] Prepare server (Ubuntu 22.04, 4GB+ RAM)
 - [ ] Install Docker & Docker Compose
-- [ ] Clone/download miu-odoo folder
+- [ ] Clone/download artemis-odoo folder
 - [ ] Start deployment following checklist
 - [ ] Complete all 7 days of setup
 - [ ] Run final health checks
-- [ ] Train faculty & PM
+- [ ] Train CEO & PM
 - [ ] Launch! 🎉
 
 ---
@@ -323,4 +326,4 @@ System is ready for launch when:
 
 Generated: December 25, 2024  
 Platform: Odoo Community 17 + Docker  
-Target: MIU Software R&D Lab
+Target: Artemis Lab

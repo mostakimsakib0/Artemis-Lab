@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="group_intern" model="res.groups">
+            <field name="name">Intern</field>
+            <field name="category_id" ref="base.module_category_usability"/>
+        </record>
+
+        <record id="group_developer" model="res.groups">
+            <field name="name">Developer</field>
+            <field name="category_id" ref="base.module_category_usability"/>
+            <field name="implied_ids" eval="[(4, ref('artemis_custom.group_intern'))]"/>
+        </record>
+
+        <record id="group_designer" model="res.groups">
+            <field name="name">Designer</field>
+            <field name="category_id" ref="base.module_category_usability"/>
+            <field name="implied_ids" eval="[(4, ref('artemis_custom.group_intern'))]"/>
+        </record>
+
+        <record id="group_ai_engineer" model="res.groups">
+            <field name="name">AI Engineer</field>
+            <field name="category_id" ref="base.module_category_usability"/>
+            <field name="implied_ids" eval="[(4, ref('artemis_custom.group_intern'))]"/>
+        </record>
+
+        <record id="group_qa_tester" model="res.groups">
+            <field name="name">QA Tester</field>
+            <field name="category_id" ref="base.module_category_usability"/>
+            <field name="implied_ids" eval="[(4, ref('artemis_custom.group_intern'))]"/>
+        </record>
+
+        <record id="group_tech_lead" model="res.groups">
+            <field name="name">Tech Lead</field>
+            <field name="category_id" ref="base.module_category_usability"/>
+            <field name="implied_ids" eval="[(4, ref('artemis_custom.group_developer'))]"/>
+        </record>
+
+        <record id="group_project_manager" model="res.groups">
+            <field name="name">Project Manager</field>
+            <field name="category_id" ref="base.module_category_usability"/>
+            <field name="implied_ids" eval="[(4, ref('artemis_custom.group_developer'))]"/>
+        </record>
+
+        <record id="group_ceo" model="res.groups">
+            <field name="name">CEO</field>
+            <field name="category_id" ref="base.module_category_usability"/>
+            <field name="implied_ids" eval="[(4, ref('artemis_custom.group_project_manager'))]"/>
+        </record>
+
+        <record id="group_system_admin" model="res.groups">
+            <field name="name">System Admin</field>
+            <field name="category_id" ref="base.module_category_usability"/>
+            <field name="implied_ids" eval="[(4, ref('artemis_custom.group_ceo'))]"/>
+        </record>
+    </data>
+</odoo>

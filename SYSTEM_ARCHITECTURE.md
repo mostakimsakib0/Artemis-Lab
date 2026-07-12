@@ -1,21 +1,24 @@
-# MIU System Architecture & Data Flow
+# Artemis Lab — System Architecture & Data Flow
+
+> **Building Intelligent Software, AI & Design Solutions.**  
+> Software Development · AI Solutions · R&D · Interior Design & 3D Visualization · Automation · Cloud & DevOps
 
 ## System Architecture
 
 ```
 ┌─────────────────────────────────────────────────────────────────┐
-│                      CLIENT BROWSERS (Students, Faculty)         │
+│                      CLIENT BROWSERS (Interns, CEO)         │
 │                    http://SERVER_IP:8069                         │
 └────────────────────────────┬────────────────────────────────────┘
                              │
                              │ HTTP/HTTPS
                              ▼
 ┌─────────────────────────────────────────────────────────────────┐
-│                    Docker Network (miu_network)                  │
+│                    Docker Network (artemis_network)                  │
 │                                                                   │
 │  ┌──────────────────────┐          ┌──────────────────────┐     │
 │  │   Odoo Container     │          │ PostgreSQL Container │     │
-│  │   (miu_odoo)         │◄────────►│  (miu_postgres)      │     │
+│  │   (artemis_odoo)         │◄────────►│  (artemis_postgres)      │     │
 │  │                      │  TCP 5432 │                      │     │
 │  │ • Odoo 17.0          │          │ • Port 5432          │     │
 │  │ • Port 8069          │          │ • Database: postgres │     │
@@ -29,7 +32,7 @@
 │  │ • documents          │          │ Survives restarts ✓  │     │
 │  │ • mail               │          │                      │     │
 │  │ • hr_appraisal       │          └──────────────────────┘     │
-│  │ • miu_custom ✓       │                                        │
+│  │ • artemis_custom ✓       │                                        │
 │  │   (our module)       │                                        │
 │  │                      │                                        │
 │  │ Volumes:             │                                        │
@@ -43,11 +46,11 @@
                              │ File System
                              ▼
         ┌─────────────────────────────────────────┐
-        │     Host System Files (miu-odoo/)        │
+        │     Host System Files (artemis-odoo/)        │
         │                                          │
         │ • Backups: ./backups/                   │
         │ • Config: ./odoo/config/                │
-        │ • Addons: ./odoo/addons/miu_custom/    │
+        │ • Addons: ./odoo/addons/artemis_custom/    │
         │ • Scripts: ./scripts/                   │
         └─────────────────────────────────────────┘
 ```
@@ -64,9 +67,9 @@
 │  SYSTEM ADMIN  ──► Full Access ✓✓✓✓✓✓✓✓✓✓                 │
 │                   Everything                                │
 │                                                              │
-│  FACULTY       ──► View All, Evaluate ✓✓✓✓✓                │
+│  CEO       ──► View All, Evaluate ✓✓✓✓✓                │
 │  MENTOR            • Create evaluations                     │
-│                    • View student progress                  │
+│                    • View intern progress                  │
 │                    • Rate performance                       │
 │                    • Generate reports                       │
 │                                                              │
@@ -105,7 +108,7 @@
 
 ```
 ┌─────────────────────────────────────────────────────────────┐
-│                    MIU CUSTOM MODULE                         │
+│                    Artemis CUSTOM MODULE                         │
 ├─────────────────────────────────────────────────────────────┤
 │                                                              │
 │  HR MODULE (Extended)                                       │
@@ -255,8 +258,8 @@
 │  DAY 1: Docker Setup                                        │
 │  └─ Install Docker & Docker Compose                         │
 │     └─ docker-compose up -d                                │
-│        ├─ Start miu_postgres (PostgreSQL 14)              │
-│        └─ Start miu_odoo (Odoo 17)                        │
+│        ├─ Start artemis_postgres (PostgreSQL 14)              │
+│        └─ Start artemis_odoo (Odoo 17)                        │
 │                                                               │
 │  DAY 2: Module Installation                                │
 │  └─ Install 5 mandatory modules                            │
@@ -265,17 +268,18 @@
 │     ├─ Documents                                           │
 │     ├─ Mail (Discuss)                                      │
 │     ├─ Appraisals                                          │
-│     └─ MIU Custom Module ✓ (all features)                 │
+│     └─ Artemis Custom Module ✓ (all features)                 │
 │                                                               │
 │  DAY 3: User Configuration                                 │
-│  └─ Create 7 user groups                                   │
-│     ├─ Student, Developer, Tech Lead                       │
+│  └─ Create 9 user groups                                   │
+│     ├─ Intern, Developer, Designer                       │
+│     ├─ AI Engineer, Tech Lead                          │
 │     ├─ Project Manager, QA Tester                         │
-│     ├─ Faculty Mentor, System Admin                       │
-│     └─ Create faculty & PM users                          │
+│     ├─ CEO, System Admin                                  │
+│     └─ Create CEO & PM users                          │
 │                                                               │
 │  DAY 4: Project & Sprint Setup                             │
-│  └─ Create Project: "MIU Software R&D Lab – Batch 2025"  │
+│  └─ Create Project: "Artemis Lab – Batch 2025"  │
 │     ├─ Sprint 1: Requirement & Design (Week 1-2)         │
 │     ├─ Sprint 2: Core Development (Week 3-6)             │
 │     ├─ Sprint 3: Testing & Deployment (Week 7-8)         │
@@ -289,7 +293,7 @@
 │     └─ Setup daily backup cron                            │
 │                                                               │
 │  DAY 6: Roles & Permissions Test                           │
-│  └─ Test each role (Student, Developer, etc.)            │
+│  └─ Test each role (Intern, Developer, etc.)            │
 │     ├─ Verify permissions correct                         │
 │     ├─ Create documentation structure                     │
 │     └─ Create sample evaluation                           │
@@ -299,7 +303,7 @@
 │     ├─ Backup working ✓                                  │
 │     ├─ Restore tested ✓                                  │
 │     ├─ All modules functional ✓                          │
-│     ├─ Faculty & students trained                         │
+│     ├─ CEO & interns trained                         │
 │     └─ System LIVE ✓                                     │
 │                                                               │
 └──────────────────────────────────────────────────────────────┘
@@ -331,7 +335,7 @@
 │  ┌─────────────────────────────────────────┐          │
 │  │  Host File System: ./backups/           │          │
 │  │  ├─ Daily backup files (compressed)    │          │
-│  │  ├─ Semester-end full backup           │          │
+│  │  ├─ Quarter-end full backup           │          │
 │  │  ├─ Manual backup (on-demand)          │          │
 │  │  └─ Recovery tested & verified ✓       │          │
 │  └─────────────────────────────────────────┘          │
@@ -350,7 +354,7 @@
 │                                                         │
 │  SEMESTER RESET                                        │
 │  ┌─────────────────────────────────────────┐          │
-│  │  ./scripts/semester_reset.sh            │          │
+│  │  ./scripts/quarter_reset.sh            │          │
 │  │  ├─ Full backup before reset            │          │
 │  │  ├─ Delete projects & tasks             │          │
 │  │  ├─ Delete evaluations                  │          │
@@ -377,58 +381,58 @@
 
 ```
 ┌──────────────────────────────────────────────────────┐
-│           MIU CUSTOM MODULE STRUCTURE                 │
+│           Artemis CUSTOM MODULE STRUCTURE                 │
 ├──────────────────────────────────────────────────────┤
 │                                                       │
 │  __manifest__.py                                    │
 │  └─ Module definition, dependencies, data files     │
 │                                                       │
 │  models/__init__.py (280+ lines)                   │
-│  ├─ MIUEmployee (extended)                         │
+│  ├─ ArtemisEmployee (extended)                         │
 │  │  • Batch field                                   │
 │  │  • Skills many-to-many                          │
 │  │  • GitHub username                              │
 │  │  • Role tag                                      │
 │  │                                                   │
-│  ├─ MIUSkill                                        │
+│  ├─ ArtemisSkill                                        │
 │  │  • Skill name                                   │
 │  │  • Skill category                               │
 │  │                                                   │
-│  ├─ MIUProject (extended)                          │
+│  ├─ ArtemisProject (extended)                          │
 │  │  • Batch designation                            │
 │  │  • GitHub repo URL                              │
 │  │  • Documentation status                         │
 │  │  • Team members                                 │
 │  │                                                   │
-│  ├─ MIUTask (extended)                             │
+│  ├─ ArtemisTask (extended)                             │
 │  │  • GitHub PR link                               │
 │  │  • Reviewer assignment                          │
 │  │  • Custom stages (5)                            │
 │  │  • Deadline exceeded (computed)                 │
 │  │  • Constraints & automations                    │
 │  │                                                   │
-│  ├─ MIUEvaluation (new)                            │
+│  ├─ ArtemisEvaluation (new)                            │
 │  │  • Employee + sprint                            │
 │  │  • 4 rating criteria (1-5 each)                │
 │  │  • Overall rating (auto-calculated)             │
 │  │  • Comments & evaluator                         │
 │  │                                                   │
-│  └─ MIUDocumentFolder (new)                        │
+│  └─ ArtemisDocumentFolder (new)                        │
 │     • Hierarchical folders                         │
 │     • Project-linked                               │
 │     • 4 folder types                               │
 │                                                       │
 │  views/ (4 XML files)                              │
-│  ├─ miu_employee_views.xml                         │
+│  ├─ artemis_employee_views.xml                         │
 │  │  └─ Employee form with batch, skills, GitHub    │
 │  │                                                   │
-│  ├─ miu_project_views.xml                          │
+│  ├─ artemis_project_views.xml                          │
 │  │  └─ Project form with repo, status, team        │
 │  │                                                   │
-│  ├─ miu_task_views.xml                             │
+│  ├─ artemis_task_views.xml                             │
 │  │  └─ Task form with reviewer, PR, stages         │
 │  │                                                   │
-│  └─ miu_evaluation_views.xml                       │
+│  └─ artemis_evaluation_views.xml                       │
 │     ├─ Evaluation form (4 ratings)                │
 │     ├─ Evaluation list/tree view                  │
 │     ├─ Action menu                                │
@@ -439,7 +443,7 @@
 │  │  └─ 5 task stages (Todo, In Progress, etc.)    │
 │  │                                                   │
 │  └─ user_groups.xml                               │
-│     └─ 7 user groups                              │
+│     └─ 9 user groups                              │
 │                                                       │
 │  security/ (1 CSV file)                            │
 │  └─ ir.model.access.csv                           │
@@ -473,14 +477,14 @@
 │                                                       │
 │  Modules ✓                                          │
 │  ├─ 5 mandatory modules installed                  │
-│  ├─ miu_custom module fully functional             │
+│  ├─ artemis_custom module fully functional             │
 │  ├─ All menus & views visible                      │
 │  └─ No module conflicts                            │
 │                                                       │
 │  Users ✓                                            │
-│  ├─ 15+ students successfully created              │
+│  ├─ 15+ interns successfully created              │
 │  ├─ All users can login                            │
-│  ├─ 7 groups assigned properly                     │
+│  ├─ 9 groups assigned properly                     │
 │  ├─ Permissions working correctly                  │
 │  └─ No access issues                               │
 │                                                       │
@@ -504,9 +508,9 @@
 │  └─ No data loss detected                          │
 │                                                       │
 │  Training ✓                                         │
-│  ├─ Faculty trained (30 min)                       │
+│  ├─ CEO trained (30 min)                       │
 │  ├─ PM trained (30 min)                            │
-│  ├─ Sample students tested access                  │
+│  ├─ Sample interns tested access                  │
 │  ├─ Documentation provided                         │
 │  └─ Support contact established                    │
 │                                                       │

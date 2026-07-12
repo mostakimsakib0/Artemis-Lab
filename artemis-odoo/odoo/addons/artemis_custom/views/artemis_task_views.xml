@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_artemis_task_form_inherit" model="ir.ui.view">
+            <field name="name">artemis.task.form.inherit</field>
+            <field name="model">project.task</field>
+            <field name="inherit_id" ref="project.view_task_form2"/>
+            <field name="arch" type="xml">
+                <field name="user_ids" position="after">
+                    <field name="reviewer_id"/>
+                    <field name="github_pr_link"/>
+                    <field name="custom_stage"/>
+                    <field name="deadline_exceeded"/>
+                </field>
+            </field>
+        </record>
+    </data>
+</odoo>

@@ -1,4 +1,7 @@
-# MIU Software R&D Lab - Implementation Complete ✓
+# Artemis Lab - Implementation Complete ✓
+
+> **Building Intelligent Software, AI & Design Solutions.**  
+> Software Development · AI Solutions · R&D · Interior Design & 3D Visualization · Automation · Cloud & DevOps
 
 **Date**: December 25, 2025  
 **Status**: READY FOR PRODUCTION DEPLOYMENT  
@@ -8,7 +11,7 @@
 
 ## Executive Summary
 
-Complete production-ready setup for **MIU Software R&D Lab** as a real software company simulation built on Odoo Community + Docker.
+Complete production-ready setup for **Artemis Lab** as a real software company built on Odoo Community + Docker.
 
 - ✅ All infrastructure code created
 - ✅ Custom module fully functional
@@ -45,26 +48,26 @@ Complete production-ready setup for **MIU Software R&D Lab** as a real software 
 
 ---
 
-### 3. **Custom Module (miu_custom)**
+### 3. **Custom Module (artemis_custom)**
 
 #### Models (280+ lines)
 📄 `models/__init__.py`
-- **MIUEmployee**: Extended employee with batch, skills, GitHub, role tag
-- **MIUSkill**: Skill catalog
-- **MIUProject**: Extended project with team members, GitHub repo, doc status
-- **MIUTask**: Extended task with reviewer, PR link, custom stages, deadline checking
-- **MIUEvaluation**: Complete appraisal system with 4-point rating
-- **MIUDocumentFolder**: Document structure management
+- **ArtemisEmployee**: Extended employee with batch, skills, GitHub, role tag
+- **ArtemisSkill**: Skill catalog
+- **ArtemisProject**: Extended project with team members, GitHub repo, doc status
+- **ArtemisTask**: Extended task with reviewer, PR link, custom stages, deadline checking
+- **ArtemisEvaluation**: Complete appraisal system with 4-point rating
+- **ArtemisDocumentFolder**: Document structure management
 
 #### Views (4 files, 100+ lines)
-📄 `views/miu_employee_views.xml` - Employee extended fields
-📄 `views/miu_project_views.xml` - Project management view
-📄 `views/miu_task_views.xml` - Task workflow view
-📄 `views/miu_evaluation_views.xml` - Evaluation interface
+📄 `views/artemis_employee_views.xml` - Employee extended fields
+📄 `views/artemis_project_views.xml` - Project management view
+📄 `views/artemis_task_views.xml` - Task workflow view
+📄 `views/artemis_evaluation_views.xml` - Evaluation interface
 
 #### Data Setup (2 files, 50+ lines)
 📄 `data/task_stages.xml` - 5 task stages (Todo, In Progress, In Review, Approved, Rejected)
-📄 `data/user_groups.xml` - 7 user groups (Student, Developer, Tech Lead, PM, QA, Faculty, Admin)
+📄 `data/user_groups.xml` - 9 user groups (Intern, Developer, Designer, AI Engineer, Tech Lead, PM, QA, CEO, Admin)
 
 #### Security (8 lines)
 📄 `security/ir.model.access.csv` - Fine-grained permissions for all models
@@ -131,8 +134,8 @@ Complete production-ready setup for **MIU Software R&D Lab** as a real software 
 - Verification checks
 
 #### Maintenance
-📄 `scripts/semester_reset.sh` (45 lines)
-- Semester-end reset (keeps history)
+📄 `scripts/quarter_reset.sh` (45 lines)
+- Quarter-end reset (keeps history)
 - Full backup before reset
 - Selective data deletion
 - Integrity preservation
@@ -156,7 +159,7 @@ All scripts are:
 ## File Structure Summary
 
 ```
-/workspaces/MIU-Software-R-D-Lab/miu-odoo/
+/workspaces/Artemis-Lab/artemis-odoo/
 ├── README.md                                 (Quick reference)
 ├── SETUP_GUIDE.md                           (Complete 15-step setup)
 ├── DEPLOYMENT_CHECKLIST.md                  (7-day deployment plan)
@@ -165,7 +168,7 @@ All scripts are:
 │   ├── config/
 │   │   └── odoo.conf                        (Server configuration)
 │   ├── addons/
-│   │   └── miu_custom/
+│   │   └── artemis_custom/
 │   │       ├── __init__.py
 │   │       ├── __manifest__.py              (Module definition)
 │   │       ├── models/
@@ -182,7 +185,7 @@ All scripts are:
 └── scripts/                                 (4 scripts)
     ├── daily_backup.sh
     ├── restore_backup.sh
-    ├── semester_reset.sh
+    ├── quarter_reset.sh
     └── health_check.sh
 
 Total: 24 files created
@@ -216,7 +219,7 @@ Documentation: ~1,500+ lines
 - Sprint-based appraisals
 - 4-point criteria rating (1-5 scale each)
 - Auto-calculated overall rating
-- Faculty evaluation interface
+- CEO evaluation interface
 - Comments & report generation
 
 ### ✅ Documentation Management
@@ -228,7 +231,7 @@ Documentation: ~1,500+ lines
 - Daily automated backups
 - Compression with gzip
 - Restore from any backup point
-- Semester reset capability
+- Quarter reset capability
 - 30-day retention policy
 
 ---
@@ -243,14 +246,14 @@ Documentation: ~1,500+ lines
 - **Language**: Python (Odoo), XML (views), SQL
 
 ### Separation of Concerns
-- ✅ Code (miu_custom module) separate from DB
+- ✅ Code (artemis_custom module) separate from DB
 - ✅ Configuration separate from application
 - ✅ Data volumes persist across restarts
 - ✅ Network isolation via Docker network
 - ✅ Multi-worker capable for scaling
 
 ### Security
-- Role-based access control (7 groups)
+- Role-based access control (9 groups)
 - Model-level permissions (ir.model.access.csv)
 - Database user authentication (odoo/password)
 - PR link enforcement for task approval
@@ -264,7 +267,7 @@ Documentation: ~1,500+ lines
 |-----|-------|-------|
 | 1 | Docker Setup | Install, verify, database creation |
 | 2 | Module Installation | 5 mandatory + custom module |
-| 3 | User Setup | 7 groups, faculty, PM, students |
+| 3 | User Setup | 9 groups, CEO, PM, interns |
 | 4 | Projects & Sprints | Main project + 3 milestones + tasks |
 | 5 | Automation | Verify all 3 rules, backup, cron |
 | 6 | Permissions | Test all 6 roles, documentation |
@@ -299,7 +302,7 @@ Documentation: ~1,500+ lines
 ### Backup System ✓
 - [x] Daily backup script
 - [x] Restore script with verification
-- [x] Semester reset capability
+- [x] Quarter reset capability
 - [x] Health check monitoring
 
 ### Documentation ✓
@@ -334,7 +337,7 @@ sudo systemctl enable docker
 
 ### Step 2: Start System (5 minutes)
 ```bash
-cd miu-odoo
+cd artemis-odoo
 docker-compose up -d
 ```
 
@@ -346,9 +349,9 @@ docker-compose up -d
 - Configure automation
 
 ### Step 4: Handover & Training (2 hours)
-- Train faculty on evaluation system
+- Train CEO on evaluation system
 - Train PM on task management
-- Give students access
+- Give interns access
 - Set support contact
 
 ---
@@ -359,7 +362,7 @@ docker-compose up -d
 - Daily: Monitor backup completion
 - Weekly: Check error logs
 - Monthly: Database maintenance (VACUUM)
-- Semester: Create backups before reset
+- Quarter: Create backups before reset
 
 ### Common Commands
 ```bash
@@ -426,10 +429,10 @@ docker-compose logs -f odoo
 
 1. ✅ Docker containers stable (uptime 99%+)
 2. ✅ Database backups daily without errors
-3. ✅ 15+ students login successfully
+3. ✅ 15+ interns login successfully
 4. ✅ Tasks auto-rejected at deadline
 5. ✅ PR validation working
-6. ✅ Faculty can create evaluations
+6. ✅ CEO can create evaluations
 7. ✅ No critical errors in logs
 
 ---
@@ -447,7 +450,7 @@ docker-compose logs -f odoo
 - **Setup Guide**: [SETUP_GUIDE.md](SETUP_GUIDE.md) (500+ lines)
 - **Deployment**: [DEPLOYMENT_CHECKLIST.md](DEPLOYMENT_CHECKLIST.md) (400+ lines)
 - **Quick Reference**: [README.md](README.md)
-- **System Admin**: Designated by MIU
+- **System Admin**: Designated by Artemis
 - **Odoo Docs**: https://www.odoo.com/documentation/17.0/
 
 ---
@@ -456,8 +459,8 @@ docker-compose logs -f odoo
 
 **This is NOT a tutorial system. This is a production-ready operating system for:**
 
-- ✅ Real student project experience
-- ✅ University demonstration (MoU-ready)
+- ✅ Real employee project experience
+- ✅ University demonstration (Enterprise-ready)
 - ✅ Professional portfolios
 - ✅ Industry-standard ERP practice
 - ✅ Backup-protected data
@@ -468,5 +471,5 @@ docker-compose logs -f odoo
 ---
 
 **Created by**: GitHub Copilot  
-**For**: MIU Software R&D Lab  
+**For**: Artemis Lab  
 **Status**: ✅ COMPLETE & READY FOR DEPLOYMENT

@@ -1,8 +1,16 @@
-# MIU Software R&D Lab
+# Artemis Lab
 
-**A production-ready software company simulation platform built on Odoo 17 + Docker**
+> **Building Intelligent Software, AI & Design Solutions.**
 
-> This system transforms a university lab into a real software company where students work on actual projects with professional workflows.
+Artemis Lab is a real software company built on Odoo 17 + Docker. Employees work on actual projects with professional workflows — sprints, code reviews, PR requirements, and performance evaluations.
+
+### Services
+
+| | |
+|---|---|
+| Software Development | AI Solutions |
+| Research & Development | Interior Design & 3D Visualization |
+| Automation | Cloud & DevOps |
 
 ---
 
@@ -10,7 +18,7 @@
 
 ```bash
 # 1. Navigate to project
-cd miu-odoo
+cd artemis-odoo
 
 # 2. Start services
 docker-compose up -d
@@ -19,43 +27,35 @@ docker-compose up -d
 # http://localhost:8069
 
 # 4. Create database
-# Database: miu_rnd_lab
-# Email: admin@miu-rnd.lab
-# Company: MIU Software R&D Lab
+# Database: artemis_lab
+# Email: admin@artemis-lab.local
+# Company: Artemis Lab
 ```
 
 ---
 
 ## What is This?
 
-### ✅ Real Software Company Features
+### ✅ Real Company Features
 
-- **Students = Employees** with roles (Developer, QA, Student, etc.)
+- **Employees** with roles (Developer, Designer, AI Engineer, QA, Tech Lead, etc.)
 - **Projects & Sprints** with deadlines and milestones
 - **Task Management** with GitHub PR integration
 - **Evaluation System** for sprint-based appraisals
 - **Automation Rules** for workflow discipline
 - **Document Management** for SRS, design, reports
-- **Role-Based Access Control** for 7 different roles
-
-### ✅ Not a Tutorial Platform
-
-- Professional naming conventions
-- Real-world constraints (PR requirement, review mandatory, deadline enforcement)
-- Backup & disaster recovery system
-- Production-grade deployment
-- MoU-ready documentation
+- **Role-Based Access Control** for 7 roles
 
 ---
 
 ## System Architecture
 
 ```
-MIU Software R&D Lab
+Artemis Lab
 ├── Frontend: Odoo Web Interface (Port 8069)
 │   └── React-based UI
 ├── Backend: Odoo Community Edition 17.0
-│   ├── Custom Module (miu_custom)
+│   ├── Custom Module (artemis_custom)
 │   └── 5 Mandatory Modules
 └── Database: PostgreSQL 14
     └── Persistent storage (postgres/data/)
@@ -76,13 +76,13 @@ MIU Software R&D Lab
 ## Directory Structure
 
 ```
-miu-odoo/
+artemis-odoo/
 ├── docker-compose.yml         # Core infrastructure
 ├── odoo/
 │   ├── config/
 │   │   └── odoo.conf         # Server configuration
 │   ├── addons/
-│   │   └── miu_custom/       # Custom module with all MIU features
+│   │   └── artemis_custom/       # Custom module with all Artemis features
 │   │       ├── models/       # Business logic
 │   │       ├── views/        # UI forms
 │   │       ├── security/     # Access control
@@ -94,7 +94,7 @@ miu-odoo/
 ├── scripts/
 │   ├── daily_backup.sh      # Automated backup
 │   ├── restore_backup.sh    # Database recovery
-│   ├── semester_reset.sh    # Clean slate for new batch
+│   ├── quarter_reset.sh    # Clean slate for new batch
 │   └── health_check.sh      # System health monitor
 ├── SETUP_GUIDE.md           # Complete setup guide
 └── DEPLOYMENT_CHECKLIST.md  # Week-by-week checklist
@@ -134,7 +134,7 @@ newgrp docker
 #### Step 2: Start Services
 
 ```bash
-cd miu-odoo
+cd artemis-odoo
 docker-compose up -d
 ```
 
@@ -142,8 +142,8 @@ docker-compose up -d
 
 ```
 Browser: http://localhost:8069
-Database: miu_rnd_lab
-Email: admin@miu-rnd.lab
+Database: artemis_lab
+Email: admin@artemis-lab.local
 ```
 
 #### Step 4: Install Modules
@@ -157,7 +157,7 @@ In Odoo interface → **Apps** → Install these (in order):
 
 #### Step 5: Activate Custom Module
 
-**Apps** → Search `miu` → Install **MIU Custom Module**
+**Apps** → Search `artemis` → Install **Artemis Custom Module**
 
 ---
 
@@ -179,7 +179,7 @@ In Odoo interface → **Apps** → Install these (in order):
    - Set milestone and assignee
    - Save (auto-validation enforced)
 
-### For Students
+### For Interns
 
 1. **Update Task Status**
    - Go to My Tasks
@@ -191,9 +191,9 @@ In Odoo interface → **Apps** → Install these (in order):
    - System validates PR link exists
    - Cannot approve without PR
 
-### For Faculty
+### For CEO / Management
 
-1. **Evaluate Students**
+1. **Evaluate Employees**
    - Go to HR → Evaluations
    - Create appraisal per sprint
    - Rate on 4 criteria (1-5 scale)
@@ -207,11 +207,13 @@ In Odoo interface → **Apps** → Install these (in order):
 
 | Role | Can View | Can Assign | Can Review | Can Evaluate |
 |------|----------|-----------|-----------|-------------|
-| **Student** | Own tasks | ❌ | ❌ | ❌ |
+| **Intern** | Own tasks | ❌ | ❌ | ❌ |
 | **Developer** | Team tasks | ✓ | ❌ | ❌ |
+| **Designer** | Design tasks | ✓ | ❌ | ❌ |
+| **AI Engineer** | AI & ML tasks | ✓ | ❌ | ❌ |
 | **Tech Lead** | All tasks | ✓ | ✓ | ❌ |
 | **Project Manager** | All | ✓ | ❌ | ❌ |
-| **Faculty** | Employee records | ❌ | ❌ | ✓ |
+| **CEO** | Everything | ✓ | ❌ | ✓ |
 | **System Admin** | Everything | ✓ | ✓ | ✓ |
 
 ### ⚙️ Automation Rules
@@ -233,14 +235,14 @@ In Odoo interface → **Apps** → Install these (in order):
 
 ### 📊 Evaluation System
 
-- **One evaluation per student per sprint**
+- **One evaluation per intern per sprint**
 - **4 rating criteria**:
   - Task completion
   - Code discipline
   - Communication
   - Consistency
 - **Auto-calculated overall rating**
-- **Faculty-generated reports**
+- **Management-generated reports**
 
 ---
 
@@ -250,7 +252,7 @@ In Odoo interface → **Apps** → Install these (in order):
 
 ```bash
 # Add to crontab (runs daily at 2 AM)
-0 2 * * * docker exec miu_postgres pg_dump -U odoo postgres > /path/to/backups/db_$(date +\%Y\%m\%d).sql
+0 2 * * * docker exec artemis_postgres pg_dump -U odoo postgres > /path/to/backups/db_$(date +\%Y\%m\%d).sql
 ```
 
 ### Manual Backup
@@ -265,10 +267,10 @@ In Odoo interface → **Apps** → Install these (in order):
 ./scripts/restore_backup.sh backups/db_backup_YYYYMMDD.sql.gz
 ```
 
-### Semester Reset (Keep History)
+### Quarter Reset (Keep History)
 
 ```bash
-./scripts/semester_reset.sh
+./scripts/quarter_reset.sh
 ```
 
 ---
@@ -294,10 +296,10 @@ Returns:
 
 ```bash
 # Odoo logs
-docker logs -f miu_odoo
+docker logs -f artemis_odoo
 
 # PostgreSQL logs
-docker logs -f miu_postgres
+docker logs -f artemis_postgres
 ```
 
 ---
@@ -332,7 +334,7 @@ lsof -i :8069
 
 ```bash
 # Verify PostgreSQL
-docker exec miu_postgres psql -U odoo -c "SELECT 1"
+docker exec artemis_postgres psql -U odoo -c "SELECT 1"
 
 # Reset connection
 docker-compose restart db odoo
@@ -342,7 +344,7 @@ docker-compose restart db odoo
 
 ```bash
 # Clear Odoo cache
-docker exec miu_odoo rm -rf /var/lib/odoo/addons
+docker exec artemis_odoo rm -rf /var/lib/odoo/addons
 
 # Restart
 docker-compose restart odoo
@@ -354,9 +356,9 @@ docker-compose restart odoo
 
 | Document | Purpose |
 |----------|---------|
-| [SETUP_GUIDE.md](miu-odoo/SETUP_GUIDE.md) | Complete configuration guide (100+ page equivalent) |
-| [DEPLOYMENT_CHECKLIST.md](miu-odoo/DEPLOYMENT_CHECKLIST.md) | Week-by-week deployment checklist |
-| [README.md](miu-odoo/README.md) | Quick reference |
+| [SETUP_GUIDE.md](artemis-odoo/SETUP_GUIDE.md) | Complete configuration guide (100+ page equivalent) |
+| [DEPLOYMENT_CHECKLIST.md](artemis-odoo/DEPLOYMENT_CHECKLIST.md) | Week-by-week deployment checklist |
+| [README.md](artemis-odoo/README.md) | Quick reference |
 
 ---
 
@@ -366,8 +368,8 @@ docker-compose restart odoo
 |-----|------|------|
 | **1** | Docker setup, containers running | 3 hrs |
 | **2** | Odoo config, module installation | 4 hrs |
-| **3** | User groups, faculty/PM setup | 3 hrs |
-| **4** | Student employee records | 4 hrs |
+| **3** | User groups, CEO/PM setup | 3 hrs |
+| **4** | Employee records | 4 hrs |
 | **5** | Project, sprints, sample tasks | 4 hrs |
 | **6** | Permission testing, automation | 3 hrs |
 | **7** | Training, documentation, go-live | 4 hrs |
@@ -382,7 +384,7 @@ docker-compose restart odoo
 |--------|-------|
 | **Max Concurrent Users** | 50+ (with 4 GB RAM) |
 | **Task Load** | 1000+ tasks per project |
-| **Database Size** | Grows ~50-100 MB per 100 students per semester |
+| **Database Size** | Grows ~50-100 MB per 100 interns per quarter |
 | **Backup Time** | ~2-5 minutes (depending on size) |
 | **Restore Time** | ~3-10 minutes |
 
@@ -407,7 +409,7 @@ For larger deployments:
 ### ❌ DON'T
 
 - Mix code & DB in one container
-- Give students admin rights
+- Give interns admin rights
 - Skip PR discipline
 - Change folder structure
 - Install random apps
@@ -417,16 +419,16 @@ For larger deployments:
 
 ## Support & Contact
 
-- **Documentation**: See [SETUP_GUIDE.md](miu-odoo/SETUP_GUIDE.md)
+- **Documentation**: See [SETUP_GUIDE.md](artemis-odoo/SETUP_GUIDE.md)
 - **Issues**: Check troubleshooting section above
-- **Admin Email**: admin@miu-rnd.lab
+- **Admin Email**: admin@artemis-lab.local
 - **Odoo Docs**: https://www.odoo.com/documentation/17.0/
 
 ---
 
 ## License
 
-This project is configured for MIU Software R&D Lab.
+This project is configured for Artemis Lab.
 Custom module and configuration are proprietary.
 
 ---
@@ -440,5 +442,4 @@ Custom module and configuration are proprietary.
 
 ---
 
-**This is a production-ready system, not a tutorial.**
-**It can be presented to universities and partners as a real software company simulation.**
+**This is a production-ready system for a real software company.**
