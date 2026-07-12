@@ -7,3 +7,9 @@ access_artemis_document_folder_user,Artemis Document Folder User,model_artemis_d
 access_artemis_document_folder_admin,Artemis Document Folder Admin,model_artemis_document_folder,base.group_system,1,1,1,1
 access_artemis_dashboard_user,Artemis Dashboard User,model_artemis_dashboard,base.group_user,1,0,0,0
 access_artemis_dashboard_admin,Artemis Dashboard Admin,model_artemis_dashboard,base.group_system,1,1,1,1
+access_artemis_contract_user,Artemis Contract User,model_artemis_contract,base.group_user,1,1,0,0
+access_artemis_contract_admin,Artemis Contract Admin,model_artemis_contract,base.group_system,1,1,1,1
+access_artemis_leave_user,Artemis Leave User,model_artemis_leave,base.group_user,1,1,0,0
+access_artemis_leave_admin,Artemis Leave Admin,model_artemis_leave,base.group_system,1,1,1,1
+access_artemis_payslip_user,Artemis Payslip User,model_artemis_payslip,base.group_user,1,0,0,0
+access_artemis_payslip_admin,Artemis Payslip Admin,model_artemis_payslip,base.group_system,1,1,1,1

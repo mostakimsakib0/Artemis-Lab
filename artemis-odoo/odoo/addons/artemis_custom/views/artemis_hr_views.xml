@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Contracts -->
+        <record id="view_artemis_contract_form" model="ir.ui.view">
+            <field name="name">artemis.contract.form</field>
+            <field name="model">artemis.contract</field>
+            <field name="arch" type="xml">
+                <form>
+                    <header>
+                        <button name="action_activate" type="object" string="Activate" class="btn-primary" states="draft"/>
+                        <button name="action_expire" type="object" string="Expire" class="btn-danger" states="active"/>
+                        <field name="state" widget="statusbar"/>
+                    </header>
+                    <sheet>
+                        <group>
+                            <field name="employee_id"/>
+                            <field name="type"/>
+                            <field name="start_date"/>
+                            <field name="end_date"/>
+                            <field name="salary" widget="monetary"/>
+                            <field name="currency_id" invisible="1"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_artemis_contract_tree" model="ir.ui.view">
+            <field name="name">artemis.contract.tree</field>
+            <field name="model">artemis.contract</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="employee_id"/>
+                    <field name="type"/>
+                    <field name="start_date"/>
+                    <field name="end_date"/>
+                    <field name="salary" widget="monetary"/>
+                    <field name="state"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="action_artemis_contract" model="ir.actions.act_window">
+            <field name="name">Contracts</field>
+            <field name="res_model">artemis.contract</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <!-- Leaves -->
+        <record id="view_artemis_leave_form" model="ir.ui.view">
+            <field name="name">artemis.leave.form</field>
+            <field name="model">artemis.leave</field>
+            <field name="arch" type="xml">
+                <form>
+                    <header>
+                        <button name="action_approve" type="object" string="Approve" class="btn-success" states="draft"/>
+                        <button name="action_reject" type="object" string="Reject" class="btn-danger" states="draft"/>
+                        <field name="state" widget="statusbar"/>
+                    </header>
+                    <sheet>
+                        <group>
+                            <field name="employee_id"/>
+                            <field name="type"/>
+                            <field name="date_from"/>
+                            <field name="date_to"/>
+                            <field name="duration"/>
+                            <field name="reason"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_artemis_leave_tree" model="ir.ui.view">
+            <field name="name">artemis.leave.tree</field>
+            <field name="model">artemis.leave</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="employee_id"/>
+                    <field name="type"/>
+                    <field name="date_from"/>
+                    <field name="date_to"/>
+                    <field name="duration"/>
+                    <field name="state"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="action_artemis_leave" model="ir.actions.act_window">
+            <field name="name">Leaves</field>
+            <field name="res_model">artemis.leave</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <!-- Payslips -->
+        <record id="view_artemis_payslip_form" model="ir.ui.view">
+            <field name="name">artemis.payslip.form</field>
+            <field name="model">artemis.payslip</field>
+            <field name="arch" type="xml">
+                <form>
+                    <header>
+                        <button name="action_confirm" type="object" string="Confirm" class="btn-primary" states="draft"/>
+                        <button name="action_pay" type="object" string="Mark Paid" class="btn-success" states="confirmed"/>
+                        <field name="state" widget="statusbar"/>
+                    </header>
+                    <sheet>
+                        <group>
+                            <field name="employee_id"/>
+                            <field name="contract_id"/>
+                            <field name="date_from"/>
+                            <field name="date_to"/>
+                        </group>
+                        <group string="Earnings">
+                            <field name="basic_salary" widget="monetary"/>
+                            <field name="house_rent" widget="monetary"/>
+                            <field name="medical" widget="monetary"/>
+                            <field name="conveyance" widget="monetary"/>
+                            <field name="other_allowances" widget="monetary"/>
+                            <field name="gross_salary" widget="monetary"/>
+                        </group>
+                        <group string="Deductions">
+                            <field name="tax_deduction" widget="monetary"/>
+                            <field name="other_deductions" widget="monetary"/>
+                            <field name="net_pay" widget="monetary"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_artemis_payslip_tree" model="ir.ui.view">
+            <field name="name">artemis.payslip.tree</field>
+            <field name="model">artemis.payslip</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="employee_id"/>
+                    <field name="date_from"/>
+                    <field name="date_to"/>
+                    <field name="gross_salary" widget="monetary"/>
+                    <field name="net_pay" widget="monetary"/>
+                    <field name="state"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="action_artemis_payslip" model="ir.actions.act_window">
+            <field name="name">Payslips</field>
+            <field name="res_model">artemis.payslip</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <!-- Menus -->
+        <menuitem id="menu_artemis_hr" name="HR & Payroll" parent="hr.menu_human_resources_employees" sequence="0"/>
+        <menuitem id="menu_artemis_contracts" name="Contracts" parent="menu_artemis_hr" action="action_artemis_contract" sequence="10"/>
+        <menuitem id="menu_artemis_leaves" name="Leave Requests" parent="menu_artemis_hr" action="action_artemis_leave" sequence="20"/>
+        <menuitem id="menu_artemis_payslips" name="Payslips" parent="menu_artemis_hr" action="action_artemis_payslip" sequence="30"/>
+    </data>
+</odoo>
